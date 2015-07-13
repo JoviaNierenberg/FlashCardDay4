@@ -56,3 +56,12 @@ app.post('/cards', function (req,res,next) {
     })
     .then(null, next)
 })
+
+// app.put('/cards/:flashCardId', function(req, res, next){
+//     FlashCardModel.findByIdAndUpdate({id: req.params.flashCardId}, {req.body})
+//     .exec()
+//     .then(function(card) {
+//         res.json(card);
+//     })
+//     .then(null,next)
+// })

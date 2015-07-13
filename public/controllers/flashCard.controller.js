@@ -1,6 +1,13 @@
-app.controller('FlashCardCtrl', function ($scope, ScoreFactory) {
+app.controller('FlashCardCtrl', function ($scope, ScoreFactory, NewCardFactory) {
     $scope.answered = false;
     $scope.answeredCorrectly = null;
+
+
+    // $scope.editIt = function (card) {
+    //   return NewCardFactory.editIt(card)
+    //   .then(function(card) {
+    //   })
+    // }
 
     $scope.answerQuestion = function(answer) {
       if($scope.answered) {

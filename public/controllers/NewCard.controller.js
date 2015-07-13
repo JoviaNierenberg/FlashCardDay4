@@ -16,12 +16,6 @@ app.controller('NewCardController', function ($scope, NewCardFactory, FlashCardF
 		return NewCardFactory.request(card)
 		.then(function(card) {
 		      FlashCardFactory.flashCards.push(card);
-		      // $scope.newCardForm.$setPristine()
-		      // card.question = null
-		      // card.answers.forEach(function(answer){
-		      // 	answer.text = null
-		      // 	answer.correct = false
-		      // })
 		})
 	}
 	$scope.showButton = function (card){
@@ -62,6 +56,15 @@ app.controller('NewCardController', function ($scope, NewCardFactory, FlashCardF
 
 app.factory('NewCardFactory', function ($http) {
 	return {
+
+		editIt: function (card) {
+			var config = card;
+			return $http.put('/cards/:flashCardId', config)
+			.then(function (res) {
+				return res.data
+			})
+		},
+
 		request: function (card) {
 			var config = card;
 			return $http.post('/cards', config)
