@@ -45,25 +45,16 @@ app.controller('NewCardController', function ($scope, NewCardFactory, FlashCardF
 })
 
 
-
-
-
-
-
-
-
-
-
 app.factory('NewCardFactory', function ($http) {
 	return {
 
-		editIt: function (card) {
-			var config = card;
-			return $http.put('/cards/:flashCardId', config)
-			.then(function (res) {
-				return res.data
-			})
-		},
+		// editIt: function (card) {
+		// 	var config = card;
+		// 	return $http.put('/cards/:flashCardId', config)
+		// 	.then(function (res) {
+		// 		return res.data
+		// 	})
+		// },
 
 		request: function (card) {
 			var config = card;

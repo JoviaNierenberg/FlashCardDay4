@@ -6,6 +6,7 @@ app.factory('FlashCardFactory', function ($http) {
         if (cat) config.params = {category: cat};
         return $http.get('/cards', config)
         .then(function (res) {
+          console.log(res.data)
           return res.data;
         });
       }

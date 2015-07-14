@@ -8,6 +8,18 @@
     </head>
     <body>
       <div ng-app="FlashCardApp">
+        <h1>Navigation</h1>
+        <ul>
+          <li>
+            <a ui-sref="flashCardsView()">Flash Cards</a> 
+          </li>
+          <li>
+            <a ui-sref="flashCardsForm()">Flash Cards Form</a> 
+          </li>
+          <li>
+            <a ui-sref="statistics()">Statistics</a> 
+          </li>
+        </ul>
         <ui-view></ui-view>
       </div>
       <script src="angular.js"></script>

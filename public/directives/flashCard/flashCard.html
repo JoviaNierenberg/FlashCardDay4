@@ -2,7 +2,9 @@
   class="flash-card" 
   ng-controller="FlashCardCtrl"
   border-on-hover>
+    
     <h1>
+      {{ theCard._id}}
       {{ theCard.question}}
     </h1>
 
@@ -18,5 +20,5 @@
             {{ answer.text }}
         </li>
     </ul>
-    <button name="editIt(theCard)" ng-click="editIt">edit</button>
+    <button ui-sref="edit({'_id': theCard._id})" ng-click="editPopulate(theCard._id)">edit</button>
 </div>
