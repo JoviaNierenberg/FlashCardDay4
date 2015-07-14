@@ -1,0 +1,19 @@
+<form name="newCardForm" ng-submit="doPostRequest(newCard) && reset()">
+  {{ newCardForm.question }}
+  <pre>{{newCard | json}}</pre>
+  <input type="text" name="question" ng-model="newCard.question" value="question" required></input>
+  <select name="category" ng-model="newCard.category" required>
+    <option value="MongoDB">MongoDB</option>
+    <option value="Express">Express</option>
+    <option value="Angular">Angular</option>
+    <option value="Node">Node</option>
+  </select>
+  <input type="text" name="answers" ng-model="newCard.answers[0].text"></input>
+  <input type="checkbox" name="correct" ng-model="newCard.answers[0].correct"></input>
+  <input type="text" name="answers" ng-model="newCard.answers[1].text"></input>
+  <input type="checkbox" name="correct" ng-model="newCard.answers[1].correct"></input>
+  <input type="text" name="answers" ng-model="newCard.answers[2].text"></input>
+  <input type="checkbox" name="correct" ng-model="newCard.answers[2].correct"></input>
+  <input type="submit" id="submit" value="Submit" ng-show="showButton(newCard)"/>
+  <!-- <button ng-show="showButton(newCard)" ng-click="doPostRequest(newCard)">submit</button> -->
+</form>
