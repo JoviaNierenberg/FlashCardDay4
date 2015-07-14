@@ -5,7 +5,8 @@
     "bluebird": "^2.9.21",
     "body-parser": "^1.13.2",
     "express": "^4.11.2",
-    "mongoose": "^4.0.1"
+    "mongoose": "^4.0.1",
+    "ui-router": "0.0.1"
   },
   "private": true,
   "scripts": {
