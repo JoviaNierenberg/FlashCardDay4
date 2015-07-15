@@ -4,7 +4,6 @@
   border-on-hover>
     
     <h1>
-      {{ theCard._id}}
       {{ theCard.question}}
     </h1>
 
@@ -20,5 +19,5 @@
             {{ answer.text }}
         </li>
     </ul>
-    <button ui-sref="edit({'_id': theCard._id})" ng-click="editPopulate(theCard._id)">edit</button>
+    <button ng-click="setCardId(theCard._id)" ui-sref="edit({'_id': theCard._id})">edit</button>
 </div>

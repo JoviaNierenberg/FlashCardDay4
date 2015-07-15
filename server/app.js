@@ -68,11 +68,12 @@ app.get('/edit/:_id', function(req, res, next){
     .then(null,next)
 })
 
-// app.put('/edit/:flashCardId', function(req, res, next){
-//     FlashCardModel.findByIdAndUpdate({id: req.params.flashCardId}, {req.body})
-//     .exec()
-//     .then(function(card) {
-//         res.json(card);
-//     })
-//     .then(null,next)
-// })
+app.put('/edit/:flashCardId', function(req, res, next){
+    FlashCardModel.findByIdAndUpdate({id: req.params.flashCardId}, req.body)
+    .exec()
+    .then(function(card) {
+        console.log("updated!")
+        res.json(card);
+    })
+    .then(null,next)
+})

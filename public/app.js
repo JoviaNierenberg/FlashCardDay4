@@ -19,6 +19,7 @@ var app = angular.module('FlashCardApp', ['ui.router'])
 			})
 			.state('edit', {
 				url: '/edit/:_id',
+				id: null,
 				controller: 'NewCardController',
 				templateUrl: 'directives/edit/edit.html'
 			})

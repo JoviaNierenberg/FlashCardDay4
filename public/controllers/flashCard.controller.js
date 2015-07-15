@@ -1,4 +1,4 @@
-app.controller('FlashCardCtrl', function ($scope, ScoreFactory, NewCardFactory, FlashCardFactory, $http) {
+app.controller('FlashCardCtrl', function ($scope, NewCardFactory, FlashCardFactory, $http) {
     $scope.answered = false;
     $scope.answeredCorrectly = null;
     $scope.cardInEditMode = {
@@ -9,7 +9,7 @@ app.controller('FlashCardCtrl', function ($scope, ScoreFactory, NewCardFactory, 
             { text: null, correct: false },
             { text: null, correct: false }
         ]
-    }
+    };
 
     // $scope.flashCards = FlashCardFactory.flashCards
 
@@ -18,6 +18,13 @@ app.controller('FlashCardCtrl', function ($scope, ScoreFactory, NewCardFactory, 
     //   // .then(function(card) {
     //   // })
     // }
+
+    $scope.thisCardId = $scope.thisCardId || NewCardFactory.cardId || "It's gone";
+    
+    $scope.setCardId = function(id){
+      $scope.thisCardId.id = id;
+      console.log($scope.thisCardId.id);
+    };
 
     $scope.answerQuestion = function(answer) {
       if($scope.answered) {
@@ -34,15 +41,22 @@ app.controller('FlashCardCtrl', function ($scope, ScoreFactory, NewCardFactory, 
       }
     };
 
+    $scope.doPutRequest = function (card, id) {
+      return NewCardFactory.update(card, id)
+      .then(function(data){
+        console.log("updated card");
+      });
+    };
+
     $scope.editPopulate = function(_id){
+      console.log("in the function");
       console.log("_id:", _id)
       $http.get('/edit/' + _id)
           .then(function (res) {
             console.log("res.data: ", res.data)
             console.log("res.data.question: ", res.data.question)
 
-            $scope.cardInEditMode.question = res.data.question
-
+            $scope.cardInEditMode = res.data;
       })
     }
 

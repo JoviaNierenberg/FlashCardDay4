@@ -10,14 +10,12 @@ app.controller('NewCardController', function ($scope, NewCardFactory, FlashCardF
 	}
 
 	$scope.doPostRequest = function (card) {
-		if (card.question === null){
-			console.log("there was no question")
-		}
 		return NewCardFactory.request(card)
 		.then(function(card) {
 		      FlashCardFactory.flashCards.push(card);
 		})
 	}
+
 	$scope.showButton = function (card){
 		var answerTooLong = false
 		card.answers.forEach(function(answer){
@@ -42,26 +40,4 @@ app.controller('NewCardController', function ($scope, NewCardFactory, FlashCardF
 		    ]
 		}
 	}
-})
-
-
-app.factory('NewCardFactory', function ($http) {
-	return {
-
-		// editIt: function (card) {
-		// 	var config = card;
-		// 	return $http.put('/cards/:flashCardId', config)
-		// 	.then(function (res) {
-		// 		return res.data
-		// 	})
-		// },
-
-		request: function (card) {
-			var config = card;
-			return $http.post('/cards', config)
-	        .then(function (res) {
-	          return res.data;
-			})
-		}
-	}
-})
+});
